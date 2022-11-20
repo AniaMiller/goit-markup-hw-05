@@ -122,6 +122,10 @@ button {
   padding: 32px 0;
   display: block;
   position: relative;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .top-menu-link:hover,
@@ -129,7 +133,7 @@ button {
   color: var(--hover-active-link-color);
 }
 
-.top-menu-link:hover::after {
+.top-menu-link::after {
   content: "";
   position: absolute;
   height: 4px;
@@ -138,17 +142,18 @@ button {
   right: 0px;
   border-radius: 2px;
   background-color: var(--item-color);
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) ;
+}
+
+.top-menu-link:hover::after {
+  opacity: 1;
 }
 
 .top-menu-link:active::after {
-  content: "";
-  position: absolute;
-  height: 4px;
-  width: 100%;
-  top: 76px;
-  right: 0px;
-  border-radius: 2px;
-  background-color: var(--item-color);
+  opacity: 1;
 }
 
 /* header and footer main page logo format */
@@ -177,6 +182,9 @@ button {
   letter-spacing: 0.02em;
   display: flex;
   align-items: center;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact:hover,
@@ -203,20 +211,12 @@ button {
 .order-service-wrapper {
   padding-top: 200px;
   padding-bottom: 200px;
-  background: url("../images/background-1.jpeg");
+  background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../images/background-1.jpeg");
   background-position: center;
   background-size: cover;
   margin: 0 auto;
   max-width: var(--full-web-width);
   height: 600px;
-}
-
-.order-service-wrapper:hover,
-.order-service-wrapper:focus {
-  background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-    url("../images/background-1.jpeg");
-  background-position: center;
-  background-size: cover;
 }
 
 .order-bright-text {
@@ -347,6 +347,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-property: background, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .circle-bright-social-link:hover,
@@ -365,6 +368,9 @@ button {
   border-radius: 4px;
   color: var(--customer-icon-color);
   border: 1px solid currentColor;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-box:hover,
@@ -401,6 +407,9 @@ button {
   padding-bottom: 6px;
   padding-top: 6px;
   letter-spacing: 00.03em;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-menu-button:hover,
@@ -425,6 +434,9 @@ button {
 .card-link {
   display: block;
   position: relative;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-overly {
@@ -467,23 +479,23 @@ button {
 }
 
 .card-photo-label {
-  position: relative;
+  position: absolute;
   z-index: 2;
-  top: -70px;
-  left: 0px;
-  display: block;
+  bottom: 0;
   height: 70px;
+  width: 100%;
   background-color: rgb(47, 48, 58, 0.8);
-  text-align: center;
-  padding-top: 27px;
-  padding-bottom: 27px;
-}
-
-.label-header {
   font-weight: 700;
   line-height: 1.14;
   text-transform: uppercase;
   color: var(--bright-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.relative {
+  position: relative;
 }
 
 .card-text-box {
@@ -554,6 +566,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-property: background;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .circle-dark-social-link:hover,
@@ -569,15 +584,17 @@ button {
 
 /* Modal background */
 .modal-background {
-  display: flex;
   position: fixed;
   z-index: 3;
   top: 0;
-  justify-content: center;
-  align-items: center;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
 }
 
 /* Modal content box */
@@ -587,7 +604,10 @@ button {
   height: 581px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal-close-button {
@@ -605,6 +625,14 @@ button {
   top: 8px;
 }
 
+.icon-close {
+  height: 11px;
+  width: 11px;
+  fill: var(--basic-text-color);
+}
+
+/* do poprawy okno sie nie wyswietla */
 .is-hidden {
-  display:none;
+  opacity: 0;
+  pointer-events: none;
 }

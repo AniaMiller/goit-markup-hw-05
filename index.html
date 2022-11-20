@@ -63,9 +63,11 @@
 
         <div data-modal class="modal-background is-hidden">
             <div class="modal-content">
-                <div data-modal-close class="modal-close-button">
-                    <img src="./images/modal-close-icon.svg"> 
-                </div>
+                <button type="button" data-modal-close class="modal-close-button">
+                    <svg class="icon-close">
+                        <use xlink:href="./images/icons.svg#icon-close"></use>
+                    </svg>
+                </button>
             </div>
         </div>
 
@@ -126,17 +128,17 @@
             <div class="container">
                 <h2 class=section-header>What we do</h2>
                 <ul class="row-wrapper list">
-                    <li>
+                    <li class="relative">
                         <img class="card-photo" src="./images/keyboard.jpg" alt="Komputer 1" />
-                        <p class="card-photo-label label-header">desktop apps</p>
+                        <p class="card-photo-label">desktop apps</p>
                     </li>
-                    <li>
+                    <li class="relative">
                         <img class="card-photo" src="./images/mobile.jpg" alt="Komputer 2" />
-                        <p class="card-photo-label label-header">mobile apps</p>
+                        <p class="card-photo-label">mobile apps</p>
                     </li>
-                    <li>
+                    <li class="relative">
                         <img class="card-photo" src="./images/tablet.jpg" alt="Komputer 3" />
-                        <p class="card-photo-label label-header">design solutions</p>
+                        <p class="card-photo-label">design solutions</p>
                     </li>
                 </ul>
             </div>
