@@ -431,6 +431,11 @@ button {
   gap: 30px;
 }
 
+.card {
+  overflow: hidden;
+  position: relative;
+}
+
 .card-link {
   display: block;
   position: relative;
@@ -441,14 +446,13 @@ button {
 
 .card-overly {
   position: absolute;
-  bottom: 111px;
   left: 0;
-  right: 0;
+  top: 0;
   background-color: rgba(33, 150, 243, 0.9);
-  overflow: hidden;
   width: 100%;
-  height: 0;
-  transition: .25s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  transform: translateY(101%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
 }
 
@@ -462,8 +466,8 @@ button {
   padding-right: 24px;
 }
 
-.card-link:hover .card-overly {
-  height: 292px;
+.card-link:hover .card-overly, .card-link:focus .card-overly{
+  transform: translateY(0);
 }
 /* shadow under card element in gallery */
 .card-link:hover,
